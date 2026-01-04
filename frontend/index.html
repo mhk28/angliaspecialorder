@@ -754,6 +754,7 @@
        JAVASCRIPT
        ======================================== -->
   <script>
+    const API_URL = 'https://script.google.com/macros/s/AKfycbwObdsf7w9ZCviLfHPombrMnYnjT0bpkOT2PnBT-n63w5lYqQjublTjp__FDFAEfHMhpQ/exec'
     // ========================================
     // GLOBAL FILE STORAGE
     // ========================================
@@ -1032,20 +1033,23 @@
         const file = fileInput.files[0];
         const base64 = await fileToBase64(file);
       
-        await new Promise(resolve => {
-        google.script.run.withSuccessHandler(res => {
-        if (!res.error && res.length > 0) {
-        uploadLink = res[0].link;
-        }
-        resolve();
-        }).uploadFiles({
-        files: [{
-        filename: file.name,
-        mimeType: file.type,
-        bytes: base64.split(',')[1]
-        }]
-        });
-        });
+        const uploadRes = await fetch(API_URL, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    action: "upload",
+    files: [{
+      filename: file.name,
+      mimeType: file.type,
+      bytes: base64.split(',')[1]
+    }]
+  })
+});
+
+const uploadJson = await uploadRes.json();
+if (!uploadJson.error && uploadJson.length > 0) {
+  uploadLink = uploadJson[0].link;
+}
         }
       
         formData.items.push({
@@ -1060,28 +1064,41 @@
         }
 
       // Submit the order
-      google.script.run.withSuccessHandler(res => {
-        if (res.success) {
-          status.className = 'success';
-          status.innerHTML = `✓ Order ${res.orderId} submitted successfully`;
-          status.style.display = 'block';
-          
-          setTimeout(() => {
-            document.getElementById('orderForm').reset();
-            itemsContainer.innerHTML = '';
-            itemCount = 0;
-            addItem();
-            status.style.display = 'none';
-          }, 3000);
-        } else {
-          status.className = 'error';
-          status.textContent = 'Error: ' + res.error;
-          status.style.display = 'block';
-        }
-        
-        submitBtn.disabled = false;
-        submitBtn.innerHTML = 'Submit Order';
-      }).saveOrder(formData);
+      try {
+  const response = await fetch(API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(formData)
+  });
+
+  const res = await response.json();
+
+  if (res.success) {
+    status.className = 'success';
+    status.innerHTML = `✓ Order ${res.orderId} submitted successfully`;
+    status.style.display = 'block';
+
+    setTimeout(() => {
+      document.getElementById('orderForm').reset();
+      itemsContainer.innerHTML = '';
+      itemCount = 0;
+      addItem();
+      status.style.display = 'none';
+    }, 3000);
+  } else {
+    status.className = 'error';
+    status.textContent = 'Error: ' + res.error;
+    status.style.display = 'block';
+  }
+
+} catch (err) {
+  status.className = 'error';
+  status.textContent = 'Network error: ' + err.message;
+  status.style.display = 'block';
+}
+
+submitBtn.disabled = false;
+submitBtn.innerHTML = 'Submit Order';
     });
   </script>
 </body>
