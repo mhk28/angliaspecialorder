@@ -2,781 +2,761 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Anglia Special Order Portal</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Anglia Special Order Portal</title>
 
-  <style>
-    /* ========================================
+    <style>
+        /* ========================================
        FONTS & GLOBAL RESETS
        ======================================== */
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* ========================================
+        /* ========================================
        CSS VARIABLES
        ======================================== */
-    :root {
-      --primary: #6B2A33;
-      --primary-light: #8B4453;
-      --cream: #EAE4DD;
-      --cream-dark: #D9D0C7;
-      --text-dark: #2C2421;
-      --text-light: #6B6462;
-      --white: #FFFFFF;
-      --border: #C9BFB5;
-      --transition: all 0.3s ease;
-    }
+        :root {
+            --primary: #6B2A33;
+            --primary-light: #8B4453;
+            --cream: #EAE4DD;
+            --cream-dark: #D9D0C7;
+            --text-dark: #2C2421;
+            --text-light: #6B6462;
+            --white: #FFFFFF;
+            --border: #C9BFB5;
+            --transition: all 0.3s ease;
+        }
 
-    /* ========================================
+        /* ========================================
        BASE STYLES
        ======================================== */
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--cream);
-      color: var(--text-dark);
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-      font-size: 15px;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--text-dark);
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            font-size: 15px;
+        }
 
-    .container {
-      width: 100%;
-      margin: 0;
-      padding: 0 0 80px 0;
-    }
+        .container {
+            width: 100%;
+            margin: 0;
+            padding: 0 0 80px 0;
+        }
 
-    /* ========================================
+        /* ========================================
        HEADER SECTION
        ======================================== */
-    .header {
-      background: var(--white);
-      padding: 48px 32px 40px;
-      margin-bottom: 20px;
-      border-bottom: 1px solid var(--border);
-      text-align: center;
-    }
+        .header {
+            background: var(--white);
+            padding: 48px 32px 40px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border);
+            text-align: center;
+        }
 
-    .header img {
-      width: 140px;
-      height: auto;
-      display: block;
-      margin: 0 auto 0;
-    }
+        .header img {
+            width: 140px;
+            height: auto;
+            display: block;
+            margin: 0 auto 0;
+        }
 
-    h1 {
-      font-family: 'Cormorant', serif;
-      font-size: 42px;
-      color: var(--primary);
-      font-weight: 600;
-      line-height: 1.2;
-      margin-bottom: 8px;
-      letter-spacing: 0.5px;
-    }
+        h1 {
+            font-family: 'Cormorant', serif;
+            font-size: 42px;
+            color: var(--primary);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
 
-    .subtitle {
-      color: var(--text-light);
-      font-size: 11px;
-      font-weight: 500;
-      line-height: 1.5;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-top: 12px;
-    }
+        .subtitle {
+            color: var(--text-light);
+            font-size: 11px;
+            font-weight: 500;
+            line-height: 1.5;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-top: 12px;
+        }
 
-    /* ========================================
+        /* ========================================
        FORM SECTIONS
        ======================================== */
-    #orderForm {
-      padding: 0 20px;
-    }
+        #orderForm {
+            padding: 0 20px;
+        }
 
-    .form-section {
-      background: var(--white);
-      padding: 32px 28px;
-      margin: 0 0 16px 0;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      animation: fadeIn 0.4s ease-out;
-    }
+        .form-section {
+            background: var(--white);
+            padding: 32px 28px;
+            margin: 0 0 16px 0;
+            border: 1px solid var(--border);
+            border-radius: 2px;
+            animation: fadeIn 0.4s ease-out;
+        }
 
-    .section-header {
-      margin: 0 0 28px 0;
-      padding: 0 0 16px 0;
-      border-bottom: 1px solid var(--cream);
-    }
+        .section-header {
+            margin: 0 0 28px 0;
+            padding: 0 0 16px 0;
+            border-bottom: 1px solid var(--cream);
+        }
 
-    .section-title {
-      font-family: 'Cormorant', serif;
-      font-weight: 600;
-      font-size: 26px;
-      color: var(--primary);
-      line-height: 1.3;
-      letter-spacing: 0.3px;
-    }
+        .section-title {
+            font-family: 'Cormorant', serif;
+            font-weight: 600;
+            font-size: 26px;
+            color: var(--primary);
+            line-height: 1.3;
+            letter-spacing: 0.3px;
+        }
 
-    /* ========================================
+        /* ========================================
        FORM LAYOUT
        ======================================== */
-    .form-row {
-      display: block;
-    }
+        .form-row {
+            display: block;
+        }
 
-    .form-group {
-      margin-bottom: 28px;
-    }
+        .form-group {
+            margin-bottom: 28px;
+        }
 
-    .form-group:last-child {
-      margin-bottom: 0;
-    }
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
 
-    /* ========================================
+        /* ========================================
        FORM ELEMENTS - LABELS
        ======================================== */
-    label {
-      display: block;
-      font-weight: 500;
-      font-size: 13px;
-      margin-bottom: 10px;
-      color: var(--text-dark);
-      line-height: 1.4;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-    }
+        label {
+            display: block;
+            font-weight: 500;
+            font-size: 13px;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            line-height: 1.4;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
 
-    .required {
-      color: var(--primary);
-      margin-left: 3px;
-    }
+        .required {
+            color: var(--primary);
+            margin-left: 3px;
+        }
 
-    /* ========================================
+        /* ========================================
        FORM ELEMENTS - INPUTS
        ======================================== */
-    input,
-    textarea,
-    select {
-      width: 100%;
-      padding: 16px 0;
-      border: none;
-      border-bottom: 1px solid var(--border);
-      border-radius: 0;
-      font-size: 15px;
-      font-family: 'Inter', sans-serif;
-      transition: var(--transition);
-      background: transparent;
-      color: var(--text-dark);
-      line-height: 1.5;
-      font-weight: 400;
-    }
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 16px 0;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            border-radius: 0;
+            font-size: 15px;
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+            background: transparent;
+            color: var(--text-dark);
+            line-height: 1.5;
+            font-weight: 400;
+        }
 
-    input:focus,
-    textarea:focus,
-    select:focus {
-      border-bottom: 2px solid var(--primary);
-      outline: none;
-      padding-bottom: 15px;
-    }
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-bottom: 2px solid var(--primary);
+            outline: none;
+            padding-bottom: 15px;
+        }
 
-    input::placeholder,
-    textarea::placeholder {
-      color: var(--text-light);
-      font-weight: 300;
-    }
+        input::placeholder,
+        textarea::placeholder {
+            color: var(--text-light);
+            font-weight: 300;
+        }
 
-    /* ========================================
+        /* ========================================
        SELECT DROPDOWN STYLING
        ======================================== */
-    select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%236B2A33' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 0 center;
-      background-size: 20px;
-      padding-right: 32px;
-      -webkit-appearance: none;
-      appearance: none;
-      cursor: pointer;
-    }
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'%3E%3Cpath d='M5 7.5L10 12.5L15 7.5' stroke='%236B2A33' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0 center;
+            background-size: 20px;
+            padding-right: 32px;
+            -webkit-appearance: none;
+            appearance: none;
+            cursor: pointer;
+        }
 
-    /* ========================================
+        /* ========================================
        TEXTAREA STYLING
        ======================================== */
-    textarea {
-      border: 1px solid var(--border);
-      border-radius: 0;
-      min-height: 120px;
-      resize: vertical;
-      padding: 16px;
-      line-height: 1.6;
-      margin-top: 8px;
-      background: var(--white);
-    }
+        textarea {
+            border: 1px solid var(--border);
+            border-radius: 0;
+            min-height: 120px;
+            resize: vertical;
+            padding: 16px;
+            line-height: 1.6;
+            margin-top: 8px;
+            background: var(--white);
+        }
 
-    textarea:focus {
-      border: 2px solid var(--primary);
-      padding: 15px;
-    }
+        textarea:focus {
+            border: 2px solid var(--primary);
+            padding: 15px;
+        }
 
-    /* ========================================
+        /* ========================================
        FILE INPUT STYLING
        ======================================== */
-    input[type="file"] {
-      padding: 20px 16px;
-      border: 1px dashed var(--border);
-      border-radius: 0;
-      background: var(--cream);
-      cursor: pointer;
-      transition: var(--transition);
-    }
+        input[type="file"] {
+            padding: 20px 16px;
+            border: 1px dashed var(--border);
+            border-radius: 0;
+            background: var(--cream);
+            cursor: pointer;
+            transition: var(--transition);
+        }
 
-    input[type="file"]:hover {
-      border-color: var(--primary);
-      background: var(--white);
-    }
+        input[type="file"]:hover {
+            border-color: var(--primary);
+            background: var(--white);
+        }
 
-    input[type="file"]::file-selector-button {
-      background: var(--primary);
-      color: var(--white);
-      border: none;
-      padding: 10px 24px;
-      border-radius: 0;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: var(--transition);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      margin-right: 16px;
-    }
+        input[type="file"]::file-selector-button {
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 10px 24px;
+            border-radius: 0;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-right: 16px;
+        }
 
-    input[type="file"]::file-selector-button:hover {
-      background: var(--primary-light);
-    }
+        input[type="file"]::file-selector-button:hover {
+            background: var(--primary-light);
+        }
 
-    /* Helper text styling */
-    small {
-      display: block;
-      font-size: 11px;
-      color: var(--text-light);
-      margin-top: 6px;
-      line-height: 1.4;
-      font-weight: 400;
-    }
+        /* Helper text styling */
+        small {
+            display: block;
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 6px;
+            line-height: 1.4;
+            font-weight: 400;
+        }
 
-    /* File list styling */
-    .file-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px;
-      margin-top: 8px;
-      background: var(--cream);
-      border: 1px solid var(--border);
-      border-radius: 2px;
-    }
+        /* File list styling */
+        .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px;
+            margin-top: 8px;
+            background: var(--cream);
+            border: 1px solid var(--border);
+            border-radius: 2px;
+        }
 
-    .file-info {
-      flex: 1;
-      font-size: 13px;
-    }
+        .file-info {
+            flex: 1;
+            font-size: 13px;
+        }
 
-    .file-name {
-      font-weight: 500;
-      color: var(--text-dark);
-    }
+        .file-name {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
 
-    .file-size {
-      font-size: 11px;
-      color: var(--text-light);
-      margin-top: 2px;
-    }
+        .file-size {
+            font-size: 11px;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
 
-    .file-remove {
-      background: transparent;
-      color: var(--primary);
-      border: 1px solid var(--primary);
-      border-radius: 0;
-      width: 28px;
-      height: 28px;
-      cursor: pointer;
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-      flex-shrink: 0;
-      margin-left: 12px;
-    }
+        .file-remove {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            border-radius: 0;
+            width: 28px;
+            height: 28px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            flex-shrink: 0;
+            margin-left: 12px;
+        }
 
-    .file-remove:hover {
-      background: var(--primary);
-      color: var(--white);
-    }
+        .file-remove:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
 
-    /* ========================================
+        /* ========================================
        ORDER ITEMS BLOCKS
        ======================================== */
-    .item-block {
-      border: 1px solid var(--border);
-      border-radius: 0;
-      padding: 24px;
-      margin-bottom: 16px;
-      background: var(--cream);
-      transition: var(--transition);
-    }
+        .item-block {
+            border: 1px solid var(--border);
+            border-radius: 0;
+            padding: 24px;
+            margin-bottom: 16px;
+            background: var(--cream);
+            transition: var(--transition);
+        }
 
-    .item-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--cream-dark);
-    }
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--cream-dark);
+        }
 
-    .item-number {
-      font-family: 'Cormorant', serif;
-      font-weight: 600;
-      color: var(--primary);
-      font-size: 20px;
-      letter-spacing: 0.3px;
-    }
+        .item-number {
+            font-family: 'Cormorant', serif;
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 20px;
+            letter-spacing: 0.3px;
+        }
 
-    .item-row {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
+        .item-row {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
 
-    /* ========================================
+        /* ========================================
        BUTTONS
        ======================================== */
-    .btn {
-      border: none;
-      border-radius: 0;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 13px;
-      padding: 16px 40px;
-      transition: var(--transition);
-      font-family: 'Inter', sans-serif;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
+        .btn {
+            border: none;
+            border-radius: 0;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 13px;
+            padding: 16px 40px;
+            transition: var(--transition);
+            font-family: 'Inter', sans-serif;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
 
-    .remove-btn {
-      background: transparent;
-      color: var(--primary);
-      border: 1px solid var(--primary);
-      border-radius: 0;
-      width: 36px;
-      height: 36px;
-      cursor: pointer;
-      font-size: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-      font-weight: 300;
-    }
+        .remove-btn {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            border-radius: 0;
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-weight: 300;
+        }
 
-    .remove-btn:hover {
-      background: var(--primary);
-      color: var(--white);
-    }
+        .remove-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
 
-    .add-btn {
-      background: transparent;
-      color: var(--primary);
-      border: 1px solid var(--primary);
-      width: 100%;
-      margin-top: 12px;
-    }
+        .add-btn {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            width: 100%;
+            margin-top: 12px;
+        }
 
-    .add-btn:hover {
-      background: var(--primary);
-      color: var(--white);
-    }
+        .add-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
 
-    .submit-btn {
-      background: var(--primary);
-      color: var(--white);
-      width: 100%;
-      padding: 18px 40px;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-    }
+        .submit-btn {
+            background: var(--primary);
+            color: var(--white);
+            width: 100%;
+            padding: 18px 40px;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+        }
 
-    .submit-btn:hover {
-      background: var(--primary-light);
-    }
+        .submit-btn:hover {
+            background: var(--primary-light);
+        }
 
-    .submit-btn:disabled {
-      background: var(--text-light);
-      cursor: not-allowed;
-    }
+        .submit-btn:disabled {
+            background: var(--text-light);
+            cursor: not-allowed;
+        }
 
-    /* ========================================
+        /* ========================================
        STATUS MESSAGES
        ======================================== */
-    #status {
-      margin: 24px 0 0;
-      padding: 18px 20px;
-      border-radius: 0;
-      font-size: 14px;
-      display: none;
-      line-height: 1.5;
-      font-weight: 500;
-      border: 1px solid;
-    }
+        #status {
+            margin: 24px 0 0;
+            padding: 18px 20px;
+            border-radius: 0;
+            font-size: 14px;
+            display: none;
+            line-height: 1.5;
+            font-weight: 500;
+            border: 1px solid;
+        }
 
-    #status.success {
-      display: block;
-      background: #f0fdf4;
-      color: #166534;
-      border-color: #86efac;
-    }
+        #status.success {
+            display: block;
+            background: #f0fdf4;
+            color: #166534;
+            border-color: #86efac;
+        }
 
-    #status.error {
-      display: block;
-      background: #fef2f2;
-      color: #991b1b;
-      border-color: #fecaca;
-    }
+        #status.error {
+            display: block;
+            background: #fef2f2;
+            color: #991b1b;
+            border-color: #fecaca;
+        }
 
-    /* ========================================
+        /* ========================================
        LOADING SPINNER
        ======================================== */
-    .spinner {
-      display: inline-block;
-      width: 14px;
-      height: 14px;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      border-top-color: #fff;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin-right: 10px;
-    }
+        .spinner {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            margin-right: 10px;
+        }
 
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
 
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-    /* ========================================
+        /* ========================================
        SPACING ADJUSTMENTS
        ======================================== */
-    #email {
-      margin-bottom: 0;
-    }
+        #email {
+            margin-bottom: 0;
+        }
 
-    /* ========================================
+        /* ========================================
        DESKTOP RESPONSIVE STYLES
        ======================================== */
-    @media (min-width: 1024px) {
-      body {
-        background: var(--cream);
-      }
+        @media (min-width: 1024px) {
+            body {
+                background: var(--cream);
+            }
 
-      .container {
-        display: grid;
-        grid-template-columns: 420px 1fr;
-        min-height: 100vh;
-        max-width: 1800px;
-        margin: 0 auto;
-        background: var(--white);
-      }
+            .container {
+                display: grid;
+                grid-template-columns: 420px 1fr;
+                min-height: 100vh;
+                max-width: 1800px;
+                margin: 0 auto;
+                background: var(--white);
+            }
 
-      .header {
-        height: 100vh;
-        position: sticky;
-        top: 0;
-        margin: 0;
-        border-bottom: none;
-        border-right: 1px solid var(--border);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 64px 56px;
-      }
+            .header {
+                height: 100vh;
+                position: sticky;
+                top: 0;
+                margin: 0;
+                border-bottom: none;
+                border-right: 1px solid var(--border);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 64px 56px;
+            }
 
-      .header img {
-        width: 180px;
-        margin-bottom: 0;
-      }
+            .header img {
+                width: 180px;
+                margin-bottom: 0;
+            }
 
-      h1 {
-        font-size: 52px;
-        margin-bottom: 12px;
-      }
+            h1 {
+                font-size: 52px;
+                margin-bottom: 12px;
+            }
 
-      .subtitle {
-        font-size: 12px;
-        letter-spacing: 3.5px;
-        margin-top: 16px;
-      }
+            .subtitle {
+                font-size: 12px;
+                letter-spacing: 3.5px;
+                margin-top: 16px;
+            }
 
-      #orderForm {
-        padding: 72px 80px 100px;
-        overflow-y: auto;
-        background: var(--cream);
-      }
+            #orderForm {
+                padding: 72px 80px 100px;
+                overflow-y: auto;
+                background: var(--cream);
+            }
 
-      .form-section {
-        padding: 40px;
-        margin-bottom: 24px;
-        border: 1px solid var(--border);
-      }
+            .form-section {
+                padding: 40px;
+                margin-bottom: 24px;
+                border: 1px solid var(--border);
+            }
 
-      .form-section:hover {
-        box-shadow: 0 4px 16px rgba(107, 42, 51, 0.08);
-      }
+            .form-section:hover {
+                box-shadow: 0 4px 16px rgba(107, 42, 51, 0.08);
+            }
 
-      .section-header {
-        margin-bottom: 32px;
-        padding-bottom: 20px;
-      }
+            .section-header {
+                margin-bottom: 32px;
+                padding-bottom: 20px;
+            }
 
-      .section-title {
-        font-size: 32px;
-      }
+            .section-title {
+                font-size: 32px;
+            }
 
-      .form-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 32px;
-      }
+            .form-row {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
 
-      .form-group {
-        margin-bottom: 0;
-      }
+            .form-group {
+                margin-bottom: 0;
+            }
 
-      label {
-        font-size: 12px;
-        letter-spacing: 1px;
-      }
+            label {
+                font-size: 12px;
+                letter-spacing: 1px;
+            }
 
-      input,
-      textarea,
-      select {
-        font-size: 15px;
-      }
+            input,
+            textarea,
+            select {
+                font-size: 15px;
+            }
 
-      textarea {
-        min-height: 100px;
-      }
+            textarea {
+                min-height: 100px;
+            }
 
-      .item-block {
-        padding: 32px;
-      }
+            .item-block {
+                padding: 32px;
+            }
 
-      .item-block:hover {
-        border-color: var(--primary);
-        background: var(--white);
-      }
+            .item-block:hover {
+                border-color: var(--primary);
+                background: var(--white);
+            }
 
-      .item-row {
-        display: grid;
-        grid-template-columns: 1.5fr 1.5fr 1fr 0.8fr 1fr;
-        gap: 24px;
-      }
+            .item-row {
+                display: grid;
+                grid-template-columns: 1.5fr 1.5fr 1fr 0.8fr 1fr;
+                gap: 24px;
+            }
 
-      .add-btn {
-        width: auto;
-        padding: 14px 40px;
-      }
+            .add-btn {
+                width: auto;
+                padding: 14px 40px;
+            }
 
-      .submit-btn {
-        width: auto;
-        padding: 18px 56px;
-      }
+            .submit-btn {
+                width: auto;
+                padding: 18px 56px;
+            }
 
-      .submit-section {
-        background: transparent;
-        border: none;
-        padding: 32px 0 0;
-        margin-top: 0;
-      }
+            .submit-section {
+                background: transparent;
+                border: none;
+                padding: 32px 0 0;
+                margin-top: 0;
+            }
 
-      .submit-section:hover {
-        box-shadow: none;
-      }
-    }
+            .submit-section:hover {
+                box-shadow: none;
+            }
+        }
 
-    /* ========================================
+        /* ========================================
        LARGE DESKTOP STYLES
        ======================================== */
-    @media (min-width: 1440px) {
-      #orderForm {
-        padding: 96px 120px 120px;
-      }
-    }
-  </style>
+        @media (min-width: 1440px) {
+            #orderForm {
+                padding: 96px 120px 120px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <!-- ========================================
+    <!-- ========================================
        MAIN CONTAINER
        ======================================== -->
-  <div class="container">
+    <div class="container">
 
-    <!-- HEADER SECTION -->
-    <div class="header">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHunQteixwG1gi8mu6Zu_HRWH1x-ovC4xv7Q&s"
-           alt="Anglia M. Club">
-      <div class="subtitle">Special Order Portal</div>
+        <!-- HEADER SECTION -->
+        <div class="header">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHunQteixwG1gi8mu6Zu_HRWH1x-ovC4xv7Q&s"
+                alt="Anglia M. Club">
+            <div class="subtitle">Special Order Portal</div>
+        </div>
+
+        <!-- ORDER FORM -->
+        <form id="orderForm">
+
+            <!-- ORDER INFORMATION SECTION -->
+            <div class="form-section">
+                <div class="section-header">
+                    <h3 class="section-title">Order Information</h3>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="outlet">Outlet <span class="required">*</span></label>
+                        <select id="outlet" required>
+                            <option value="">Select Outlet</option>
+                            <option value="JJ">JJ</option>
+                            <option value="JC">JC</option>
+                            <option value="AS">AS</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="advisor">Fashion Advisor <span class="required">*</span></label>
+                        <input id="advisor" required placeholder="Enter advisor name" autocomplete="name">
+                    </div>
+                </div>
+            </div>
+
+            <!-- CUSTOMER DETAILS SECTION -->
+            <div class="form-section">
+                <div class="section-header">
+                    <h3 class="section-title">Customer Details</h3>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Customer Name <span class="required">*</span></label>
+                        <input id="name" required placeholder="Enter full name" autocomplete="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact">Customer Number <span class="required">*</span></label>
+                        <div style="display:flex; gap:10px; align-items:center;">
+                            <select id="country" required
+                                style="flex:0.6; padding:12px; border:1px solid var(--border); background:white;">
+                                <option value="">Country</option>
+                                <option value="SG">🇸🇬 Singapore</option>
+                                <option value="MY">🇲🇾 Malaysia</option>
+                                <option value="ID">🇮🇩 Indonesia</option>
+                                <option value="OTHER">🌏 Other</option>
+                            </select>
+                            <input id="contact" required placeholder="Enter contact number" type="tel" style="flex:1;"
+                                autocomplete="tel">
+                        </div>
+                        <small id="contactError" style="color:#991b1b; display:none; font-size:12px; margin-top:4px;">
+                            Invalid number format.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top: 28px;">
+                    <label for="email">Customer Email</label>
+                    <input id="email" type="email" placeholder="customer@example.com" autocomplete="email">
+                </div>
+                <div class="form-group" style="margin-top: 28px;">
+                    <label for="remarks">Remarks / Quantity</label>
+                    <input id="remarks" placeholder="Special customer remarks, notes, or quantity">
+                </div>
+            </div>
+
+            <!-- ORDER ITEMS SECTION -->
+            <div class="form-section">
+                <div class="section-header">
+                    <h3 class="section-title">Order Items</h3>
+                </div>
+                <div id="itemsContainer"></div>
+                <button type="button" class="btn add-btn" id="addItemBtn">+ Add Item</button>
+            </div>
+
+            <!-- SUBMIT SECTION -->
+            <div class="form-section submit-section">
+                <button type="submit" class="btn submit-btn" id="submitBtn">Submit Order</button>
+                <div id="status"></div>
+            </div>
+
+        </form>
     </div>
 
-    <!-- ORDER FORM -->
-    <form id="orderForm">
-
-      <!-- ORDER INFORMATION SECTION -->
-      <div class="form-section">
-        <div class="section-header">
-          <h3 class="section-title">Order Information</h3>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="outlet">Outlet <span class="required">*</span></label>
-            <select id="outlet" required>
-              <option value="">Select Outlet</option>
-              <option value="JJ">JJ</option>
-              <option value="JC">JC</option>
-              <option value="AS">AS</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label for="advisor">Fashion Advisor <span class="required">*</span></label>
-            <input id="advisor"
-                   required
-                   placeholder="Enter advisor name"
-                   autocomplete="name">
-          </div>
-        </div>
-      </div>
-
-      <!-- CUSTOMER DETAILS SECTION -->
-      <div class="form-section">
-        <div class="section-header">
-          <h3 class="section-title">Customer Details</h3>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Customer Name <span class="required">*</span></label>
-            <input id="name"
-                   required
-                   placeholder="Enter full name"
-                   autocomplete="name">
-          </div>
-          <div class="form-group">
-            <label for="contact">Customer Number <span class="required">*</span></label>
-            <div style="display:flex; gap:10px; align-items:center;">
-              <select id="country"
-                      required
-                      style="flex:0.6; padding:12px; border:1px solid var(--border); background:white;">
-                <option value="">Country</option>
-                <option value="SG">🇸🇬 Singapore</option>
-                <option value="MY">🇲🇾 Malaysia</option>
-                <option value="ID">🇮🇩 Indonesia</option>
-                <option value="OTHER">🌏 Other</option>
-              </select>
-              <input id="contact"
-                     required
-                     placeholder="Enter contact number"
-                     type="tel"
-                     style="flex:1;"
-                     autocomplete="tel">
-            </div>
-            <small id="contactError"
-                   style="color:#991b1b; display:none; font-size:12px; margin-top:4px;">
-              Invalid number format.
-            </small>
-          </div>
-        </div>
-        <div class="form-group" style="margin-top: 28px;">
-          <label for="email">Customer Email</label>
-          <input id="email"
-                 type="email"
-                 placeholder="customer@example.com"
-                 autocomplete="email">
-        </div>
-        <div class="form-group" style="margin-top: 28px;">
-          <label for="remarks">Remarks / Quantity</label>
-          <input id="remarks"
-                 placeholder="Special customer remarks, notes, or quantity">
-        </div>
-      </div>
-
-      <!-- ORDER ITEMS SECTION -->
-      <div class="form-section">
-        <div class="section-header">
-          <h3 class="section-title">Order Items</h3>
-        </div>
-        <div id="itemsContainer"></div>
-        <button type="button"
-                class="btn add-btn"
-                id="addItemBtn">+ Add Item</button>
-      </div>
-
-      <!-- SUBMIT SECTION -->
-      <div class="form-section submit-section">
-        <button type="submit"
-                class="btn submit-btn"
-                id="submitBtn">Submit Order</button>
-        <div id="status"></div>
-      </div>
-
-    </form>
-  </div>
-
-  <!-- ========================================
+    <!-- ========================================
        JAVASCRIPT
        ======================================== -->
-  <script>
-    const API_URL = 'https://script.google.com/macros/s/AKfycbwkDB9xG7mjKg_QURKI2zTAFGTTEgZN0_JMHGaiA893Fp2WaCXfp0c4eZUlf6tKkVMCoA/exec'
-    // ========================================
-    // GLOBAL FILE STORAGE
-    // ========================================
-    
+    <script>
+        const API_URL = 'https://script.google.com/macros/s/AKfycbwkDB9xG7mjKg_QURKI2zTAFGTTEgZN0_JMHGaiA893Fp2WaCXfp0c4eZUlf6tKkVMCoA/exec'
+        // ========================================
+        // GLOBAL FILE STORAGE
+        // ========================================
 
-    // ========================================
-    // INITIALIZE FORM ON PAGE LOAD
-    // ========================================
-    let itemsContainer;
-    let itemCount = 0;
-    document.addEventListener('DOMContentLoaded', () => {
-      itemsContainer = document.getElementById('itemsContainer');
 
-      // ========================================
-      // ADD ITEM FUNCTION
-      // ========================================
-      function addItem() {
-  itemCount++;
-  
-  const div = document.createElement('div');
-  div.className = 'item-block';
-  div.innerHTML = `
+        // ========================================
+        // INITIALIZE FORM ON PAGE LOAD
+        // ========================================
+        let itemsContainer;
+        let itemCount = 0;
+        document.addEventListener('DOMContentLoaded', () => {
+            itemsContainer = document.getElementById('itemsContainer');
+
+            // ========================================
+            // ADD ITEM FUNCTION
+            // ========================================
+            function addItem() {
+                itemCount++;
+
+                const div = document.createElement('div');
+                div.className = 'item-block';
+                div.innerHTML = `
     <div class="item-header">
       <span class="item-number">Item ${itemCount}</span>
       <button type="button" class="remove-btn" aria-label="Remove">×</button>
@@ -839,268 +819,268 @@
       </div>
     </div>
   `;
-  
-  itemsContainer.appendChild(div);
-}
+
+                itemsContainer.appendChild(div);
+            }
 
 
-      // ========================================
-      // REMOVE ITEM FUNCTION
-      // ========================================
-      function removeItem(btn) {
-        if (document.querySelectorAll('.item-block').length === 1) {
-          alert('You must have at least one item');
-          return;
-        }
-        btn.closest('.item-block').remove();
-        updateItemNumbers();
-      }
+            // ========================================
+            // REMOVE ITEM FUNCTION
+            // ========================================
+            function removeItem(btn) {
+                if (document.querySelectorAll('.item-block').length === 1) {
+                    alert('You must have at least one item');
+                    return;
+                }
+                btn.closest('.item-block').remove();
+                updateItemNumbers();
+            }
 
-      // ========================================
-      // UPDATE ITEM NUMBERS
-      // ========================================
-      function updateItemNumbers() {
-        document.querySelectorAll('.item-block').forEach((item, i) => {
-          item.querySelector('.item-number').textContent = `Item ${i + 1}`;
+            // ========================================
+            // UPDATE ITEM NUMBERS
+            // ========================================
+            function updateItemNumbers() {
+                document.querySelectorAll('.item-block').forEach((item, i) => {
+                    item.querySelector('.item-number').textContent = `Item ${i + 1}`;
+                });
+                itemCount = document.querySelectorAll('.item-block').length;
+            }
+
+            // ========================================
+            // EVENT LISTENERS
+            // ========================================
+            document.getElementById('addItemBtn').addEventListener('click', addItem);
+
+            itemsContainer.addEventListener('click', (e) => {
+                if (e.target.classList.contains('remove-btn')) {
+                    removeItem(e.target);
+                }
+            });
+
+            // Initialize with one item
+            addItem();
+
+            // Expose globally for form reset
+            window.addItem = addItem;
         });
-        itemCount = document.querySelectorAll('.item-block').length;
-      }
 
-      // ========================================
-      // EVENT LISTENERS
-      // ========================================
-      document.getElementById('addItemBtn').addEventListener('click', addItem);
+        // ========================================
+        // FILE UPLOAD HANDLER
+        // ========================================
 
-      itemsContainer.addEventListener('click', (e) => {
-        if (e.target.classList.contains('remove-btn')) {
-          removeItem(e.target);
+        // ========================================
+        // DISPLAY FILES
+        // ========================================
+
+        // ========================================
+        // PHONE VALIDATION FUNCTION
+        // ========================================
+        function validatePhone(country, number) {
+            const clean = number.replace(/\s|-/g, '');
+
+            switch (country) {
+                case 'SG': return /^[89]\d{7}$/.test(clean);
+                case 'MY': return /^01\d{8,9}$/.test(clean);
+                case 'ID': return /^08\d{8,11}$/.test(clean);
+                case 'OTHER': return /^\d{7,15}$/.test(clean);
+                default: return false;
+            }
         }
-      });
 
-      // Initialize with one item
-      addItem();
-
-      // Expose globally for form reset
-      window.addItem = addItem;
-    });
-
-    // ========================================
-    // FILE UPLOAD HANDLER
-    // ========================================
-
-    // ========================================
-    // DISPLAY FILES
-    // ========================================
-
-    // ========================================
-    // PHONE VALIDATION FUNCTION
-    // ========================================
-    function validatePhone(country, number) {
-      const clean = number.replace(/\s|-/g, '');
-      
-      switch (country) {
-        case 'SG': return /^[89]\d{7}$/.test(clean);
-        case 'MY': return /^01\d{8,9}$/.test(clean);
-        case 'ID': return /^08\d{8,11}$/.test(clean);
-        case 'OTHER': return /^\d{7,15}$/.test(clean);
-        default: return false;
-      }
-    }
-
-    // ========================================
-    // FILE TO BASE64 CONVERSION
-    // ========================================
-    function fileToBase64(file) {
-      return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = reject;
-        reader.readAsDataURL(file);
-      });
-    }
-
-    // ========================================
-    // FORM VALIDATION
-    // ========================================
-    function validateForm() {
-      const errors = [];
-      
-      if (!document.getElementById('outlet').value) {
-        errors.push('Please select an outlet');
-      }
-      if (!document.getElementById('advisor').value.trim()) {
-        errors.push('Please enter fashion advisor name');
-      }
-      if (!document.getElementById('name').value.trim()) {
-        errors.push('Please enter customer name');
-      }
-      if (!document.getElementById('country').value) {
-        errors.push('Please select a country');
-      }
-      if (!document.getElementById('contact').value.trim()) {
-        errors.push('Please enter customer number');
-      }
-      
-      const items = document.querySelectorAll('.item-block');
-      if (items.length === 0) {
-        errors.push('Please add at least one item');
-      }
-      
-      items.forEach((block, idx) => {
-        const itemNum = idx + 1;
-        if (!block.querySelector('.style').value.trim()) {
-          errors.push(`Item ${itemNum}: Please enter style number`);
+        // ========================================
+        // FILE TO BASE64 CONVERSION
+        // ========================================
+        function fileToBase64(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
         }
-        if (!block.querySelector('.fabric').value.trim()) {
-          errors.push(`Item ${itemNum}: Please enter fabric type`);
-        }
-        if (!block.querySelector('.color').value.trim()) {
-          errors.push(`Item ${itemNum}: Please enter color`);
-        }
-        if (!block.querySelector('.size').value) {
-          errors.push(`Item ${itemNum}: Please select size`);
-        }
-        if (!block.querySelector('.price').value || parseFloat(block.querySelector('.price').value) <= 0) {
-          errors.push(`Item ${itemNum}: Please enter valid price`);
-        }
-        const upload = block.querySelector('.itemUpload');
-        if (!upload || upload.files.length === 0) {
-          errors.push(`Item ${itemNum}: Please upload a file`);
-        }
-      });
-      
-      return errors;
-    }
 
-    // ========================================
-    // FORM SUBMISSION HANDLER
-    // ========================================
-    document.getElementById('orderForm').addEventListener('submit', async (e) => {
-      e.preventDefault();
+        // ========================================
+        // FORM VALIDATION
+        // ========================================
+        function validateForm() {
+            const errors = [];
 
-      const country = document.getElementById('country').value;
-      const contact = document.getElementById('contact').value.trim();
-      const errorMsg = document.getElementById('contactError');
-      const status = document.getElementById('status');
-      
-      // Validate phone number
-      if (!validatePhone(country, contact)) {
-        errorMsg.style.display = 'block';
-        errorMsg.textContent = 'Please enter a valid number for ' +
-          (country === 'SG' ? 'Singapore (8 digits, starting with 8 or 9)' :
-           country === 'MY' ? 'Malaysia (starts with 01, 9–10 digits)' :
-           country === 'ID' ? 'Indonesia (starts with 08, 10–13 digits)' :
-           'a valid phone number');
-        return;
-      } else {
-        errorMsg.style.display = 'none';
-      }
-      
-      // Validate entire form
-      const validationErrors = validateForm();
-      if (validationErrors.length > 0) {
-        status.className = 'error';
-        status.innerHTML = '<strong>Please fix the following:</strong><br>' + 
-          validationErrors.map(err => `• ${err}`).join('<br>');
-        status.style.display = 'block';
-        status.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        return;
-      }
-      
-      const submitBtn = document.getElementById('submitBtn');
-      submitBtn.disabled = true;
-      submitBtn.innerHTML = '<span class="spinner"></span>Submitting...';
-      status.style.display = 'none';
-      
-      // Collect form data
-      const formData = {
-        outlet: document.getElementById('outlet').value.trim(),
-        advisor: document.getElementById('advisor').value.trim(),
-        name: document.getElementById('name').value.trim(),
-        contact: document.getElementById('contact').value.trim(),
-        email: document.getElementById('email').value.trim(),
-        notes: document.getElementById('notes')?.value?.trim() || '',
-        remarks: document.getElementById('remarks').value.trim(),
-        items: [],
-        country: document.getElementById('country').value.trim(),
-      };
+            if (!document.getElementById('outlet').value) {
+                errors.push('Please select an outlet');
+            }
+            if (!document.getElementById('advisor').value.trim()) {
+                errors.push('Please enter fashion advisor name');
+            }
+            if (!document.getElementById('name').value.trim()) {
+                errors.push('Please enter customer name');
+            }
+            if (!document.getElementById('country').value) {
+                errors.push('Please select a country');
+            }
+            if (!document.getElementById('contact').value.trim()) {
+                errors.push('Please enter customer number');
+            }
 
-      // Collect all order items
-      const itemBlocks = document.querySelectorAll('.item-block');
-      
-      for (let i = 0; i < itemBlocks.length; i++) { const block=itemBlocks[i]; const
-        fileInput=block.querySelector('.itemUpload'); let uploadLink='' ; if (fileInput.files.length> 0) {
-        const file = fileInput.files[0];
-        const base64 = await fileToBase64(file);
-      
-        const uploadRes = await fetch(API_URL, {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({
-    action: "upload",
-    files: [{
-      filename: file.name,
-      mimeType: file.type,
-      bytes: base64.split(',')[1]
-    }]
-  })
-});
+            const items = document.querySelectorAll('.item-block');
+            if (items.length === 0) {
+                errors.push('Please add at least one item');
+            }
 
-const uploadJson = await uploadRes.json();
-if (!uploadJson.error && uploadJson.length > 0) {
-  uploadLink = uploadJson[0].link;
-}
+            items.forEach((block, idx) => {
+                const itemNum = idx + 1;
+                if (!block.querySelector('.style').value.trim()) {
+                    errors.push(`Item ${itemNum}: Please enter style number`);
+                }
+                if (!block.querySelector('.fabric').value.trim()) {
+                    errors.push(`Item ${itemNum}: Please enter fabric type`);
+                }
+                if (!block.querySelector('.color').value.trim()) {
+                    errors.push(`Item ${itemNum}: Please enter color`);
+                }
+                if (!block.querySelector('.size').value) {
+                    errors.push(`Item ${itemNum}: Please select size`);
+                }
+                if (!block.querySelector('.price').value || parseFloat(block.querySelector('.price').value) <= 0) {
+                    errors.push(`Item ${itemNum}: Please enter valid price`);
+                }
+                const upload = block.querySelector('.itemUpload');
+                if (!upload || upload.files.length === 0) {
+                    errors.push(`Item ${itemNum}: Please upload a file`);
+                }
+            });
+
+            return errors;
         }
-      
-        formData.items.push({
-        style: block.querySelector('.style').value,
-        fabric: block.querySelector('.fabric').value,
-        color: block.querySelector('.color').value,
-        size: block.querySelector('.size').value,
-        price: block.querySelector('.price').value,
-        notes: block.querySelector('.notes').value,
-        uploadLink
+
+        // ========================================
+        // FORM SUBMISSION HANDLER
+        // ========================================
+        document.getElementById('orderForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const country = document.getElementById('country').value;
+            const contact = document.getElementById('contact').value.trim();
+            const errorMsg = document.getElementById('contactError');
+            const status = document.getElementById('status');
+
+            // Validate phone number
+            if (!validatePhone(country, contact)) {
+                errorMsg.style.display = 'block';
+                errorMsg.textContent = 'Please enter a valid number for ' +
+                    (country === 'SG' ? 'Singapore (8 digits, starting with 8 or 9)' :
+                        country === 'MY' ? 'Malaysia (starts with 01, 9–10 digits)' :
+                            country === 'ID' ? 'Indonesia (starts with 08, 10–13 digits)' :
+                                'a valid phone number');
+                return;
+            } else {
+                errorMsg.style.display = 'none';
+            }
+
+            // Validate entire form
+            const validationErrors = validateForm();
+            if (validationErrors.length > 0) {
+                status.className = 'error';
+                status.innerHTML = '<strong>Please fix the following:</strong><br>' +
+                    validationErrors.map(err => `• ${err}`).join('<br>');
+                status.style.display = 'block';
+                status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner"></span>Submitting...';
+            status.style.display = 'none';
+
+            // Collect form data
+            const formData = {
+                outlet: document.getElementById('outlet').value.trim(),
+                advisor: document.getElementById('advisor').value.trim(),
+                name: document.getElementById('name').value.trim(),
+                contact: document.getElementById('contact').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                notes: document.getElementById('notes')?.value?.trim() || '',
+                remarks: document.getElementById('remarks').value.trim(),
+                items: [],
+                country: document.getElementById('country').value.trim(),
+            };
+
+            // Collect all order items
+            const itemBlocks = document.querySelectorAll('.item-block');
+
+            for (let i = 0; i < itemBlocks.length; i++) {
+                const block = itemBlocks[i]; const
+                    fileInput = block.querySelector('.itemUpload'); let uploadLink = ''; if (fileInput.files.length > 0) {
+                        const file = fileInput.files[0];
+                        const base64 = await fileToBase64(file);
+
+                        const uploadRes = await fetch(API_URL, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                action: "upload",
+                                files: [{
+                                    filename: file.name,
+                                    mimeType: file.type,
+                                    bytes: base64.split(',')[1]
+                                }]
+                            })
+                        });
+
+                        const uploadJson = await uploadRes.json();
+                        if (!uploadJson.error && uploadJson.length > 0) {
+                            uploadLink = uploadJson[0].link;
+                        }
+                    }
+
+                formData.items.push({
+                    style: block.querySelector('.style').value,
+                    fabric: block.querySelector('.fabric').value,
+                    color: block.querySelector('.color').value,
+                    size: block.querySelector('.size').value,
+                    price: block.querySelector('.price').value,
+                    notes: block.querySelector('.notes').value,
+                    uploadLink
+                });
+            }
+
+            // Submit the order
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    body: JSON.stringify(formData)
+                });
+
+                const res = await response.json();
+
+                if (res.success) {
+                    status.className = 'success';
+                    status.innerHTML = `✓ Order ${res.orderId} submitted successfully`;
+                    status.style.display = 'block';
+
+                    setTimeout(() => {
+                        document.getElementById('orderForm').reset();
+                        itemsContainer.innerHTML = '';
+                        itemCount = 0;
+                        addItem();
+                        status.style.display = 'none';
+                    }, 3000);
+                } else {
+                    status.className = 'error';
+                    status.textContent = 'Error: ' + res.error;
+                    status.style.display = 'block';
+                }
+
+            } catch (err) {
+                status.className = 'error';
+                status.textContent = 'Network error: ' + err.message;
+                status.style.display = 'block';
+            }
+
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Submit Order';
         });
-        }
-
-      // Submit the order
-      try {
-  const response = await fetch(API_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(formData)
-  });
-
-  const res = await response.json();
-
-  if (res.success) {
-    status.className = 'success';
-    status.innerHTML = `✓ Order ${res.orderId} submitted successfully`;
-    status.style.display = 'block';
-
-    setTimeout(() => {
-      document.getElementById('orderForm').reset();
-      itemsContainer.innerHTML = '';
-      itemCount = 0;
-      addItem();
-      status.style.display = 'none';
-    }, 3000);
-  } else {
-    status.className = 'error';
-    status.textContent = 'Error: ' + res.error;
-    status.style.display = 'block';
-  }
-
-} catch (err) {
-  status.className = 'error';
-  status.textContent = 'Network error: ' + err.message;
-  status.style.display = 'block';
-}
-
-submitBtn.disabled = false;
-submitBtn.innerHTML = 'Submit Order';
-    });
-  </script>
+    </script>
 </body>
 
 </html>
