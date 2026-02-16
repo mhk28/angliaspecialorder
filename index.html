@@ -739,7 +739,7 @@
        JAVASCRIPT
        ======================================== -->
     <script>
-        const API_URL = 'https://script.google.com/macros/s/AKfycbzqkertzhvWPg4sR8WPyaLYiAtRpdF99ahbJ05V4pbwM5nRSXb0lu_j9UgEJmXyqpM-OQ/exec'
+        const API_URL = 'https://script.google.com/macros/s/AKfycbzj1dKhqdPoVADsdAmH8y7nPGPkInHEPgoAkwBGn7DBbPusb23iBmrE-V6S9-TIFHBglA/exec'
         // ========================================
         // GLOBAL FILE STORAGE
         // ========================================
@@ -881,10 +881,10 @@
         // PHONE VALIDATION FUNCTION
         // ========================================
         function validatePhone(country, number) {
-                const clean = number.replace(/\s|-/g, '');
-                // Accept any phone number with 7-15 digits
-                return /^\d{7,15}$/.test(clean);
-            }
+            const clean = number.replace(/\s|-/g, '');
+            // Accept any phone number with 7-15 digits
+            return /^\d{7,15}$/.test(clean);
+        }
 
         // ========================================
         // FILE TO BASE64 CONVERSION
@@ -1004,31 +1004,38 @@
             const itemBlocks = document.querySelectorAll('.item-block');
 
             for (let i = 0; i < itemBlocks.length; i++) {
-                const block = itemBlocks[i]; const
-                    fileInput = block.querySelector('.itemUpload'); let uploadLink = ''; if (fileInput.files.length > 0) {
-                        const file = fileInput.files[0];
-                        const base64 = await fileToBase64(file);
+                const block = itemBlocks[i];
+                const fileInput = block.querySelector('.itemUpload');
+                let uploadLink = '';
 
-                        const fd = new FormData();
-                        fd.append('payload', JSON.stringify({
-                            action: "upload",
-                            files: [{
-                                filename: file.name,
-                                mimeType: file.type,
-                                bytes: base64.split(',')[1]
-                            }]
-                        }));
+                if (fileInput.files.length > 0) {
+                    const file = fileInput.files[0];
+                    const base64 = await fileToBase64(file);
 
-                        const uploadRes = await fetch(API_URL, {
-                            method: 'POST',
-                            body: fd
-                        });
+                    // Upload file using URL parameters instead of FormData
+                    const uploadUrl = `${API_URL}?action=upload`;
+                    const uploadPayload = {
+                        action: "upload",
+                        files: [{
+                            filename: file.name,
+                            mimeType: file.type,
+                            bytes: base64.split(',')[1]
+                        }]
+                    };
 
-                        const uploadJson = await uploadRes.json();
-                        if (!uploadJson.error && uploadJson.length > 0) {
-                            uploadLink = uploadJson[0].link;
-                        }
+                    const uploadRes = await fetch(uploadUrl, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'text/plain',
+                        },
+                        body: JSON.stringify(uploadPayload)
+                    });
+
+                    const uploadJson = await uploadRes.json();
+                    if (!uploadJson.error && uploadJson.length > 0) {
+                        uploadLink = uploadJson[0].link;
                     }
+                }
 
                 formData.items.push({
                     style: block.querySelector('.style').value,
@@ -1041,14 +1048,14 @@
                 });
             }
 
-            // Submit the order
+            // Submit the order using URL parameter
             try {
-                const fd = new FormData();
-                fd.append('payload', JSON.stringify(formData));
-
                 const response = await fetch(API_URL, {
                     method: 'POST',
-                    body: fd
+                    headers: {
+                        'Content-Type': 'text/plain',
+                    },
+                    body: JSON.stringify(formData)
                 });
 
                 const res = await response.json();
