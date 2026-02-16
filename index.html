@@ -664,6 +664,7 @@
                             <option value="JJ">JJ</option>
                             <option value="JC">JC</option>
                             <option value="AS">AS</option>
+                            <option value="Ray Speed">Ray Speed</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -738,7 +739,7 @@
        JAVASCRIPT
        ======================================== -->
     <script>
-        const API_URL = 'https://script.google.com/macros/s/AKfycbwgzi1hpU0ttGhABDp0Obgt82DIMTV_ikTyjGVVOEEEC7YxZjjE8L36Doq5ENB6TT_DBA/exec'
+        const API_URL = 'https://script.google.com/macros/s/AKfycbxkSMiZTPvIHUgR4ZAuv4T1PE_iDnN92DlRNF85nfOtRrnH8p98jBxEZn5b3hmEAJUb3g/exec'
         // ========================================
         // GLOBAL FILE STORAGE
         // ========================================
@@ -880,16 +881,10 @@
         // PHONE VALIDATION FUNCTION
         // ========================================
         function validatePhone(country, number) {
-            const clean = number.replace(/\s|-/g, '');
-
-            switch (country) {
-                case 'SG': return /^[89]\d{7}$/.test(clean);
-                case 'MY': return /^01\d{8,9}$/.test(clean);
-                case 'ID': return /^08\d{8,11}$/.test(clean);
-                case 'OTHER': return /^\d{7,15}$/.test(clean);
-                default: return false;
+                const clean = number.replace(/\s|-/g, '');
+                // Accept any phone number with 7-15 digits
+                return /^\d{7,15}$/.test(clean);
             }
-        }
 
         // ========================================
         // FILE TO BASE64 CONVERSION
@@ -970,11 +965,7 @@
             // Validate phone number
             if (!validatePhone(country, contact)) {
                 errorMsg.style.display = 'block';
-                errorMsg.textContent = 'Please enter a valid number for ' +
-                    (country === 'SG' ? 'Singapore (8 digits, starting with 8 or 9)' :
-                        country === 'MY' ? 'Malaysia (starts with 01, 9–10 digits)' :
-                            country === 'ID' ? 'Indonesia (starts with 08, 10–13 digits)' :
-                                'a valid phone number');
+                errorMsg.textContent = 'Please enter a valid phone number (7-15 digits)';
                 return;
             } else {
                 errorMsg.style.display = 'none';
