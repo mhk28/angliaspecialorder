@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>Anglia Special Order Portal</title>
+    <link rel="icon" type="image/x-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHunQteixwG1gi8mu6Zu_HRWH1x-ovC4xv7Q&s">
 
     <style>
         /* ========================================
@@ -819,8 +820,8 @@
 
       <!-- ✅ ITEM-SPECIFIC UPLOAD -->
       <div class="form-group" style="grid-column:1 / -1;">
-        <label>Upload for this item <span class="required">*</span></label>
-        <input type="file" class="itemUpload" accept="image/*,video/*" required>
+        <label>Upload for this item (Optional)</label>
+        <input type="file" class="itemUpload" accept="image/*,video/*">
       </div>
     </div>
   `;
@@ -941,10 +942,6 @@
                 }
                 if (!block.querySelector('.price').value || parseFloat(block.querySelector('.price').value) <= 0) {
                     errors.push(`Item ${itemNum}: Please enter valid price`);
-                }
-                const upload = block.querySelector('.itemUpload');
-                if (!upload || upload.files.length === 0) {
-                    errors.push(`Item ${itemNum}: Please upload a file`);
                 }
             });
 
